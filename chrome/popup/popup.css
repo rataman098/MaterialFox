@@ -1,5 +1,4 @@
-menupopup,
-panel[type="autocomplete-richlistbox"]
+menupopup, panel[type="autocomplete-richlistbox"]
 {
 	-moz-appearance: none !important;
 	background: 0 !important;
@@ -60,7 +59,7 @@ menu,
 menuitem,
 .autocomplete-richlistitem
 {
-	padding: 0 24px 0 !important;
+	padding: 0 10px 0 !important;
 	min-height: 28px !important;
 	border: 0 !important;
 }
