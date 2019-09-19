@@ -4,7 +4,7 @@
 ![Preview](https://user-images.githubusercontent.com/5405629/45172944-21d91900-b24a-11e8-8bc5-03814121b0de.png)
 This theme is powered by blood, sweat, and coffee. If you like it, please consider helping out to support its continued development.
 
-[![Buy original creator a coffee](https://svgshare.com/i/8Yd.svg)](https://www.buymeacoffee.com/n4ho5QX2l)
+[![Buy me a coffee](https://svgshare.com/i/8Yd.svg)](https://www.buymeacoffee.com/n4ho5QX2l)
 
 ## What this does
 Inspired by Google's Material Design and their latest Google Chrome UI, this theme turns your Firefox into a Material-styled web browser. The aim was to style the browser as closely as possible to the latest Google Chrome dev builds, where practical.
@@ -16,17 +16,18 @@ Some steps involve accessing the about:config page. You can get there by typing 
 
 ### Mandatory instructions
 1. Copy the chrome folder into your Firefox profile directory. To find your profile directory, go to about:support. Alternatively, you can symlink your chrome folder instead of copying.
-2. [about:config] Set ```svg.context-properties.content.enabled``` to ```true``` (default is ```false```).
-3. Restart Firefox.
+2. [Firefox 69+, about:config] Set ```toolkit.legacyUserProfileCustomizations.stylesheets``` to ```true``` (default is ```false```).
+3. [about:config] Set ```svg.context-properties.content.enabled``` to ```true``` (default is ```false```).
+4. Restart Firefox.
 
 ### Recommended instructions
 Add space above tab bar:
 * Right click on toolbar -> Customize.
 * Check Drag Space checkbox.
 
-Emulate Chrome's profile switcher button:
+Emulate Chrome's profile switcher button (Firefox 67+ only):
 * Right click on toolbar -> Customize.
-* Drag Synced Tabs to the toolbar.
+* Drag Firefox Account to the toolbar.
 
 Replicate Chrome behaviour for clipped tabs:
 * [about:config] Set ```browser.tabs.tabClipWidth``` to ```83``` (default is ```144```).
@@ -38,6 +39,6 @@ Replicate Chrome's "Not Secure" on HTTP:
 * [about:config] Set ```security.insecure_connection_text.enabled``` to ```true```.
 
 ## Please note
-* Linux is not frequently tested; last tested on 07/09/2018.
-* Some customisation settings may no longer work (such as compact density).
+* Linux is not frequently tested; last tested on 21/05/2019.
+* Some customisation settings may no longer work (such as compact/touch density).
 * Some custom themes may clash with address bar.

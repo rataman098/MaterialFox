@@ -36,7 +36,7 @@
 :root[privatebrowsingmode]
 {
 	/* accentcolor */
-	--lwt-accent-color: #111111 !important;
+	--lwt-accent-color: #f00 !important;
 	
 	/* textcolor */
 	--lwt-text-color: #eeeeee !important;

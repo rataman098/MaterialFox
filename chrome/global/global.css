@@ -1,34 +1,52 @@
 @media (-moz-windows-compositor)
 {
-	@media not all and (-moz-os-version: windows-win7)
+	@media not (-moz-os-version: windows-win7)
 	{
-		@media not all and (-moz-os-version: windows-win8)
+		@media not (-moz-os-version: windows-win8)
 		{
 			@media (-moz-windows-default-theme)
 			{
-				:root[sizemode=normal][tabsintitlebar]:-moz-window-inactive:not(:-moz-lwtheme)
+				:root[tabsintitlebar] .titlebar-buttonbox-container
 				{
-					border-top-color: hsl(0, 0%, 64%) !important;
-					background-color: -moz-win-accentcolor !important;
-					background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)) !important;
+					height: 30px !important;
 				}
 				
-				:root[tabsintitlebar] #titlebar-buttonbox
+				:root[tabsintitlebar][sizemode=normal] .titlebar-buttonbox-container
 				{
-					height: 29px !important;
-					margin-bottom: 5px !important;
+					margin-block-start: calc(0px - (var(--space-above-tabbar) + 5px)) !important;
 				}
 				
-				:root[tabsintitlebar][sizemode=normal] #titlebar-buttonbox
+				:root[tabsintitlebar][sizemode=maximized] .titlebar-buttonbox-container
 				{
-					margin-bottom: calc(5px + var(--space-above-tabbar)) !important;
+					margin-block-start: calc(2px - (var(--space-above-tabbar))) !important;
 				}
-			}
+					
+				:root[tabsintitlebar][sizemode=maximized]:not([extradragspace]) .titlebar-buttonbox-container
+				{
+					-moz-box-align: start !important;
+					margin-block-start: -4px !important;
+				}
+				
+				@media (-moz-windows-accent-color-in-titlebar: 0)
+				{					
+					:root[tabsintitlebar]:not(:-moz-lwtheme):not([privatebrowsingmode=temporary])
+					{
+						background-color: #dee1e6 !important;
+						color: #3c4043 !important;
+        		  	}
+					
+					:root[tabsintitlebar]:not(:-moz-lwtheme):not([privatebrowsingmode=temporary]):-moz-window-inactive
+					{
+						background-color: #e7eaed !important;
+						color: #666a6d !important;
+        		  	}
+        		}
+      		}
 		}
 	}
 }
 
-#navigator-toolbox :-moz-any(toolbar, #nav-bar-customization-target)
+#navigator-toolbox :-moz-any(toolbar, #nav-bar-customization-target):not(#toolbar-menubar)
 {
 	-moz-box-align: center !important;
 }
@@ -65,6 +83,13 @@
 	margin: 0 !important;
 	border: 2px solid transparent !important;
 	background-clip: padding-box !important;
+}
+
+#navigator-toolbox :-moz-any(.toolbarbutton-1, .scrollbutton-up, .scrollbutton-down)
+{
+	max-height: 32px !important;
+	height: 32px !important;
+	min-height: 32px !important;
 }
 
 #navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton), .scrollbutton-up, .scrollbutton-down)[disabled]
@@ -104,19 +129,46 @@
 	background: 0 !important;
 }
 
+/*
+	hack: fix customization screen popping bug when changing ui density
+	icon size is enforced and it doesn't like it when the normal density
+	nav-bar height is less than 38px (it's 36px due to smaller back icon)
+*/
+:root:not([uidensity=compact]) #customization-content-container
+{
+	padding-top: 1px !important;
+}
+
+:root:not([uidensity=compact]) :-moz-any(#customization-palette-container, #customization-panel-container)
+{
+	margin-top: -1px !important;
+}
+
 .menu-iconic,
 .menuitem-iconic
 {
 	fill: currentColor !important;
 }
 
+/* legacy */
+#navigator-toolbox
+{
+	border-bottom: 1px solid var(--chrome-content-separator-color, var(--toolbox-border-bottom-color)) !important;
+}
+
+/* legacy */
+#navigator-toolbox::after
+{
+	display: none !important;
+}
+
 /* high DPI adjustments */
 @media (min--moz-device-pixel-ratio: 2)
 {
- 	#navigator-toolbox::after
+	#navigator-toolbox
 	{
-		-moz-appearance: none !important;
-		background-color: var(--toolbar-bgcolor) !important;
-		box-shadow: inset 0 -.5px var(--toolbox-border-bottom-color) !important;
+		border-bottom-width: .5px !important;
+		padding-bottom: .5px !important;
+		box-shadow: inset 0 -.5px var(--toolbar-bgcolor) !important;
 	}
 }
