@@ -36,13 +36,13 @@
 :root[privatebrowsingmode]
 {
 	/* accentcolor */
-	--lwt-accent-color: #f00 !important;
+	--lwt-accent-color: #000 !important;
 	
 	/* textcolor */
 	--lwt-text-color: #eeeeee !important;
 	
 	/* toolbar */
-	--toolbar-bgcolor: #242424 !important;
+	--toolbar-bgcolor: #262626 !important;
 	
 	/* toolbar_text */
 	--toolbar-color: #f5f5f5 !important;
